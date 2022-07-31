@@ -243,14 +243,14 @@ btrfs send -f ${SYSTEM_NAME}-${VERSION}.img ${SNAP_PATH}
 cp ${BUILD_PATH}/build_info build_info.txt
 
 # clean up
-umount ${BUILD_PATH}
-umount ${MOUNT_PATH}
+umount -l ${BUILD_PATH}
+umount -l ${MOUNT_PATH}
 rm -rf ${MOUNT_PATH}
 rm -rf ${BUILD_IMG}
 
 IMG_FILENAME="${SYSTEM_NAME}-${VERSION}.img.tar.xz"
 
-tar caf ${IMG_FILENAME} ${SYSTEM_NAME}-${VERSION}.img
+tar -c -I'xz -9 -T0' -f ${IMG_FILENAME} ${SYSTEM_NAME}-${VERSION}.img
 rm ${SYSTEM_NAME}-${VERSION}.img
 
 sha256sum ${SYSTEM_NAME}-${VERSION}.img.tar.xz > sha256sum.txt
