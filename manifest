@@ -197,7 +197,7 @@ export AUR_PACKAGES="\
 	steam-removable-media-git \
 	rz608-fix-git \
 	handygccs-git \
-	plymouth-git \
+	plymouth \
 "
 
 export SERVICES="\
