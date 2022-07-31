@@ -1,3 +1,3 @@
-DO NOT DOWNLOAD DIRECTLY FROM THE RELEASES PAGE. THIS IS NOT INSTALLATION MEDIA. FOLLOW THE LINK BELOW FOR DOWNLOAD AND INSTALLATION INSTRUCTIONS.
+This is a custom image of ChimeraOS and it should be considered as experimental and not be expected to be used in situations where stability and data is critical.
 
-[ChimeraOS website](https://chimeraos.org)
+Things can break at any time for any reason.
