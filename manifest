@@ -27,16 +27,17 @@ export PACKAGES="\
 	networkmanager \
 	pipewire \
 	lib32-pipewire \
+  	pipewire-alsa \
+ 	pipewire-pulse \
+ 	pipewire-jack \
+ 	gst-plugin-pipewire \
 	xdg-desktop-portal \
 	xdg-desktop-portal-wlr \
-	pulseaudio \
-	lib32-libpulse \
-	pulseaudio-alsa \
+	xdg-desktop-portal-gtk \
 	alsa-utils \
 	alsa-firmware \
 	sof-firmware \
 	alsa-ucm-conf \
-	pulseaudio-bluetooth \
 	sudo \
 	python \
 	flatpak \
@@ -161,9 +162,7 @@ export PACKAGES="\
 	nautilus \
 	sushi \
 	xdg-user-dirs-gtk \
-	xdg-desktop-portal-gtk \
 	firefox \
-	gnome-shell-extension-desktop-icons-ng \
 "
 
 export AUR_PACKAGES="\
@@ -256,4 +255,8 @@ postinstallhook() {
 	yes | pacman -U steam-jupiter-stable-1.0.0.74-2.18-x86_64.pkg.tar.zst
 
 	rm *.pkg.tar.zst
+	
+	# setup crankshaft
+	flatpak install --user space.crankshaft.Crankshaft
+	flatpak run space.crankshaft.Crankshaft
 }
