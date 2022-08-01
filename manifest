@@ -257,6 +257,6 @@ postinstallhook() {
 	rm *.pkg.tar.zst
 	
 	# setup crankshaft
-	flatpak install --user space.crankshaft.Crankshaft
+	flatpak install -y flathub space.crankshaft.Crankshaft
 	flatpak run space.crankshaft.Crankshaft
 }
