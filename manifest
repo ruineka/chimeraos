@@ -162,6 +162,8 @@ export PACKAGES="\
 	sushi \
 	xdg-user-dirs-gtk \
 	xdg-desktop-portal-gtk \
+	firefox \
+	gnome-shell-extension-desktop-icons-ng \
 "
 
 export AUR_PACKAGES="\
