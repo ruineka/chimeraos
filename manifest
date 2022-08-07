@@ -5,7 +5,7 @@ export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export USERNAME="gamer"
 export SIZE="10000MB"
-export ARCHIVE_DATE=""
+export ARCHIVE_DATE="2022/08/02"
 export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
 export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
@@ -163,6 +163,9 @@ export PACKAGES="\
 	sushi \
 	xdg-user-dirs-gtk \
 	firefox \
+	discord \
+	git \
+	
 "
 
 export AUR_PACKAGES="\
@@ -178,7 +181,6 @@ export AUR_PACKAGES="\
 	wyvern \
 	gamescope-plus-git \
 	gamescope-session-git \
-	srt-live-server \
 	r8152-dkms \
 	rtl8812au-dkms-git \
 	rtl8814au-dkms-git \
@@ -192,7 +194,6 @@ export AUR_PACKAGES="\
 	steam-removable-media-git \
 	rz608-fix-git \
 	handygccs-git \
-	plymouth-git \
 "
 
 export SERVICES="\
