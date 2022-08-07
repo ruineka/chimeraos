@@ -12,8 +12,7 @@ if [ "$(cat /sys/devices/virtual/dmi/id/product_name)" == "ONE XPLAYER" ]; then
       --default-touch-mode 4 \
       --hide-cursor-delay 3000 \
       -H 800 \
-      -W 1280 \
-      --force-orientation left "
+      -W 1280 \ "
     else
        export GAMESCOPECMD="/usr/bin/gamescope \
       -e \
