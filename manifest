@@ -25,6 +25,7 @@ export PACKAGES="\
 	lib32-curl \
 	lib32-libgpg-error \
 	networkmanager \
+	iwd \
 	pipewire \
 	lib32-pipewire \
   	pipewire-alsa \

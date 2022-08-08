@@ -7,7 +7,7 @@ if [ "$(lscpu | grep "Vendor ID" | cut -d : -f 2 | xargs)" == "GenuineIntel" ]; 
       export GAMESCOPECMD="/usr/bin/gamescope-intel \
       -e \
       --xwayland-count 2 \
-      -O \'\*\',eDP-1 \\ 
+      -O \'\*\',eDP-1 \ 
       --default-touch-mode 4 \
       --hide-cursor-delay 3000 \ "
 fi
@@ -20,7 +20,7 @@ if [ "$(cat /sys/devices/virtual/dmi/id/product_name)" == "ONE XPLAYER" ]; then
       export GAMESCOPECMD="/usr/bin/gamescope-intel \
       -e \
       --xwayland-count 2 \
-      -O \'\*\',eDP-1 \\ 
+      -O \'\*\',eDP-1 \ 
       --default-touch-mode 4 \
       --hide-cursor-delay 3000 \ "
     else
