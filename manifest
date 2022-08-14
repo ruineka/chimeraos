@@ -3,6 +3,8 @@
 export VERSION="34"
 export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
+export SYSTEM_CODENAME="Merabi"
+export SYSTEM_VARIANT-"Ruineka"
 export USERNAME="gamer"
 export SIZE="10000MB"
 export ARCHIVE_DATE=""
