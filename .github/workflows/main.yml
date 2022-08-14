@@ -2,7 +2,7 @@ name: System image build
 on:
   push:
     branches:
-    - 'desktop-test'
+    - 'desktop-only'
 jobs:
   build:
     name: System image build
@@ -17,7 +17,7 @@ jobs:
         run: docker build --no-cache -t image-builder:latest .
       - name: Build system image
         id: build_image
-        run: docker run --rm -v $(pwd):/workdir -v $(pwd)/output:/output --privileged=true image-builder:latest ruineka_$(echo ${GITHUB_SHA} | cut -c1-7)
+        run: docker run --rm -v $(pwd):/workdir -v $(pwd)/output:/output --privileged=true image-builder:latest ruineka_desktop$(echo ${GITHUB_SHA} | cut -c1-7)
       - name: Create release
         id: create_release
         uses: actions/create-release@v1
@@ -25,7 +25,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ steps.build_image.outputs.version }}
-          release_name: ${{ steps.build_image.outputs.display_name }} ${{ steps.build_image.outputs.display_version }} [UNSTABLE]
+          release_name: ${{ steps.build_image.outputs.display_name }} ${{ steps.build_image.outputs.display_version }}
           draft: false
           prerelease: true
       - name: Upload system image
