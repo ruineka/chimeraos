@@ -1,6 +1,6 @@
 #! /bin/bash
 
-export VERSION="34"
+export VERSION="35"
 export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export SYSTEM_CODENAME="Merabi"
@@ -135,11 +135,7 @@ export PACKAGES="\
 	liquidctl \
 	dmidecode \
 	chaotic-aur/mangoapp \
-	chaotic-aur/dolphin-emu-git \
-	chaotic-aur/dolphin-emu-nogui-git \
 	chaotic-aur/python-vdf \
-	chaotic-aur/yuzu-mainline-git \
-	chaotic-aur/rpcs3-git \
 	chaotic-aur/libretro-mame-git \
 	chaotic-aur/libretro-stella2014-git \
 	chaotic-aur/legendary \
@@ -182,7 +178,7 @@ export AUR_PACKAGES="\
 	libretro-virtualjaguar-git \
 	libretro-opera-git \
 	wyvern \
-	gamescope-plus-git \
+	gamescope-plus \
 	gamescope-session-git \
 	r8152-dkms \
 	rtl8812au-dkms-git \
