@@ -11,6 +11,7 @@ export ARCHIVE_DATE=""
 export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
 export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
+export KERNEL_PACKAGE="linux-zen"
 
 export PACKAGES="\
 	amd-ucode \
@@ -170,20 +171,18 @@ export PACKAGES="\
 export AUR_PACKAGES="\
 	frzr \
 	steamos-compositor-plus \
+	chimera \
 	python-inotify-simple \
 	retroarch-autoconfig-udev-git \
 	alienware-alpha-wmi \
 	bcache-tools \
 	libretro-virtualjaguar-git \
-	libretro-opera-git \
 	wyvern \
 	gamescope-plus \
 	gamescope-session-git \
 	r8152-dkms \
 	rtl8812au-dkms-git \
 	rtl8814au-dkms-git \
-	rtl88x2bu-dkms-git \
-	rtw89-dkms-git \
 	xone-dkms \
 	xpad-noone-dkms \
 	xpadneo-dkms \
@@ -202,6 +201,8 @@ export SERVICES="\
 	bluetooth-workaround \
 	fstrim.timer \
 	avahi-daemon \
+	chimera-proxy.service \
+	chimera-proxy.socket \
 	haveged \
 	systemd-timesyncd \
 	sshd \
@@ -209,6 +210,8 @@ export SERVICES="\
 "
 
 export USER_SERVICES="\
+	chimera.service \
+	steam-patch.service \
 	gamemoded.service \
 	sxhkd.service \
 "

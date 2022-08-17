@@ -49,7 +49,7 @@ mount -t btrfs -o loop,nodatacow ${BUILD_IMG} ${MOUNT_PATH}
 btrfs subvolume create ${BUILD_PATH}
 
 # bootstrap
-pacstrap ${BUILD_PATH} base linux-lts
+pacstrap ${BUILD_PATH} base
 
 # build AUR packages to be installed later
 PIKAUR_CMD="PKGDEST=/tmp/temp_repo pikaur --noconfirm -Sw ${AUR_PACKAGES}"
@@ -111,6 +111,9 @@ Include = /etc/pacman.d/chaotic-mirrorlist
 # update package databases
 pacman --noconfirm -Syy
 
+# install kernel package
+pacman --noconfirm -S "${KERNEL_PACKAGE}" "${KERNEL_PACKAGE}-headers"
+
 # install packages
 pacman --noconfirm -S --overwrite '*' ${PACKAGES}
 rm -rf /var/cache/pacman/pkg
@@ -147,6 +150,10 @@ ${USERNAME} ALL=(ALL) NOPASSWD: /usr/lib/media-support/format-media.sh*
 # set the default editor, so visudo works
 echo "export EDITOR=/usr/bin/vim" >> /etc/bash.bashrc
 
+echo "[Seat:*]
+autologin-user=${USERNAME}
+" > /etc/lightdm/lightdm.conf.d/00-autologin-user.conf
+
 echo "${SYSTEM_NAME}" > /etc/hostname
 
 # enable multicast dns in avahi
@@ -175,8 +182,6 @@ LSB_VERSION=1.4
 DISTRIB_ID=${SYSTEM_NAME}
 DISTRIB_RELEASE=\"${LSB_VERSION}\"
 DISTRIB_DESCRIPTION=${SYSTEM_DESC}
-DISTRIB_CODENAME={$SYSTEM_CODENAME}
-DISTRIB_VARIANT={$SYSTEM_VARIANT}
 " > /etc/lsb-release
 
 echo 'NAME="${SYSTEM_DESC}"
@@ -204,16 +209,25 @@ pacman -Q > /manifest
 mkdir -p /usr/var/lib/pacman
 cp -r /var/lib/pacman/local /usr/var/lib/pacman/
 
+# move kernel image and initrd to a defualt location if "linux" is not used
+if [ ${KERNEL_PACKAGE} != 'linux' ] ; then
+	mv /boot/vmlinuz-${KERNEL_PACKAGE} /boot/vmlinuz-linux
+	mv /boot/initramfs-${KERNEL_PACKAGE}.img /boot/initramfs-linux.img
+	mv /boot/initramfs-${KERNEL_PACKAGE}-fallback.img /boot/initramfs-linux-fallback.img
+fi
+
 # clean up/remove unnecessary files
 rm -rf \
 /extra_pkgs \
 /extra_certs \
 /home \
+/var \
 
 rm -rf ${FILES_TO_DELETE}
 
 # create necessary directories
 mkdir /home
+mkdir /var
 mkdir /frzr_root
 EOF
 
