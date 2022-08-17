@@ -49,7 +49,7 @@ mount -t btrfs -o loop,nodatacow ${BUILD_IMG} ${MOUNT_PATH}
 btrfs subvolume create ${BUILD_PATH}
 
 # bootstrap
-pacstrap ${BUILD_PATH} base linux
+pacstrap ${BUILD_PATH} base linux-lts
 
 # build AUR packages to be installed later
 PIKAUR_CMD="PKGDEST=/tmp/temp_repo pikaur --noconfirm -Sw ${AUR_PACKAGES}"
