@@ -171,7 +171,6 @@ export PACKAGES="\
 export AUR_PACKAGES="\
 	frzr \
 	steamos-compositor-plus \
-	chimera \
 	python-inotify-simple \
 	retroarch-autoconfig-udev-git \
 	alienware-alpha-wmi \
@@ -201,8 +200,6 @@ export SERVICES="\
 	bluetooth-workaround \
 	fstrim.timer \
 	avahi-daemon \
-	chimera-proxy.service \
-	chimera-proxy.socket \
 	haveged \
 	systemd-timesyncd \
 	sshd \
@@ -210,8 +207,6 @@ export SERVICES="\
 "
 
 export USER_SERVICES="\
-	chimera.service \
-	steam-patch.service \
 	gamemoded.service \
 	sxhkd.service \
 "
