@@ -11,7 +11,7 @@ export ARCHIVE_DATE=""
 export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
 export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
-export KERNEL_PACKAGE="linux-neptune-519-wip"
+export KERNEL_PACKAGE="linux-mainline"
 
 export PACKAGES="\
 	amd-ucode \

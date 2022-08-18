@@ -7,8 +7,8 @@ RUN echo -e "MAKEFLAGS=\"-j$(nproc)\"" >> /etc/makepkg.conf
 # Allow multiple downloads
 RUN sed -i '/ParallelDownloads/s/^#//g' /etc/pacman.conf
 
-#Add valves jupiter-main repo
-RUN echo -e "[jupiter-main]\nServer = https://steamdeck-packages.steamos.cloud/archlinux-mirror/jupiter-main/os/x86_64/" >> /etc/pacman.conf
+#Add miffe repo
+RUN echo -e "[miffe]\nServer = https://arch.miffe.org/x86_64/" >> /etc/pacman.conf
 
 RUN echo -e "[multilib]\nInclude = /etc/pacman.d/mirrorlist\n" >> /etc/pacman.conf && \
 	pacman --noconfirm -Syyu && \
