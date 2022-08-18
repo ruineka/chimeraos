@@ -235,7 +235,7 @@ mkdir /var
 mkdir /frzr_root
 
 # Attempt to setup crankshaft
-flatpak install -y flathub space.crankshaft.Crankshaft
+flatpak --user install -y flathub space.crankshaft.Crankshaft
 flatpak run space.crankshaft.Crankshaft
 EOF
 
