@@ -11,7 +11,7 @@ export ARCHIVE_DATE=""
 export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
 export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
-export KERNEL_PACKAGE="linux-mainline"
+export KERNEL_PACKAGE="linux"
 
 export PACKAGES="\
 	amd-ucode \
@@ -28,6 +28,7 @@ export PACKAGES="\
 	lib32-curl \
 	lib32-libgpg-error \
 	networkmanager \
+	lib32-libnm \
 	iwd \
 	pipewire \
 	lib32-pipewire \
@@ -242,14 +243,11 @@ postinstallhook() {
 	pacman --noconfirm -U *.pkg.tar.zst
 
 	# Use jupiter-steam for bootstrapping purposes
-	curl -L -O https://steamdeck-packages.steamos.cloud/archlinux-mirror/jupiter-main/os/x86_64/steam-jupiter-stable-1.0.0.74-2.18-x86_64.pkg.tar.zst
+	curl -L -O https://steamdeck-packages.steamos.cloud/archlinux-mirror/jupiter-main/os/x86_64/steam-jupiter-stable-1.0.0.74-2.19-x86_64.pkg.tar.zst
 
 	# auto-solve steam conflict
-	yes | pacman -U steam-jupiter-stable-1.0.0.74-2.18-x86_64.pkg.tar.zst
+	yes | pacman -U steam-jupiter-stable-1.0.0.74-2.19-x86_64.pkg.tar.zst
 
 	rm *.pkg.tar.zst
-	
-	# setup crankshaft
-	#flatpak install -y flathub space.crankshaft.Crankshaft
-	#flatpak run space.crankshaft.Crankshaft
+
 }

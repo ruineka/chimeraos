@@ -182,10 +182,14 @@ LSB_VERSION=1.4
 DISTRIB_ID=${SYSTEM_NAME}
 DISTRIB_RELEASE=\"${LSB_VERSION}\"
 DISTRIB_DESCRIPTION=${SYSTEM_DESC}
+DISTRIB_CODENAME=${SYSTEM_CODENAME}
+DISTRIB_VARIANT=${SYSTEM_VARIANT}
 " > /etc/lsb-release
 
 echo 'NAME="${SYSTEM_DESC}"
 VERSION="${DISPLAY_VERSION}"
+VERSION_CODENAME=${SYSTEM_CODENAME}
+VARIANT=${SYSTEM_VARIANT}
 VERSION_ID="${VERSION_NUMBER}"
 BUILD_ID="${BUILD_ID}"
 PRETTY_NAME="${SYSTEM_DESC} ${DISPLAY_VERSION}"
@@ -229,6 +233,10 @@ rm -rf ${FILES_TO_DELETE}
 mkdir /home
 mkdir /var
 mkdir /frzr_root
+
+# Attempt to setup crankshaft
+flatpak install -y flathub space.crankshaft.Crankshaft
+flatpak run space.crankshaft.Crankshaft
 EOF
 
 # copy files into chroot again
