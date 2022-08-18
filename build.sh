@@ -233,10 +233,6 @@ rm -rf ${FILES_TO_DELETE}
 mkdir /home
 mkdir /var
 mkdir /frzr_root
-
-# Attempt to setup crankshaft
-flatpak --user install -y flathub space.crankshaft.Crankshaft
-flatpak run space.crankshaft.Crankshaft
 EOF
 
 # copy files into chroot again
