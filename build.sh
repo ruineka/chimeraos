@@ -112,7 +112,9 @@ Include = /etc/pacman.d/chaotic-mirrorlist
 pacman --noconfirm -Syy
 
 # install kernel package
-pacman --noconfirm -S "${KERNEL_PACKAGE}" "${KERNEL_PACKAGE}-headers"
+pacman --noconfirm -U https://archive.archlinux.org/packages/l/linux/linux-5.18.16.arch1-1-x86_64.pkg.tar.zst
+pacman --noconfirm -U https://archive.archlinux.org/packages/l/linux-headers/linux-headers-5.18.16.arch1-1-x86_64.pkg.tar.zst
+#pacman --noconfirm -S "${KERNEL_PACKAGE}" "${KERNEL_PACKAGE}-headers"
 
 # install packages
 pacman --noconfirm -S --overwrite '*' ${PACKAGES}
@@ -213,12 +215,12 @@ pacman -Q > /manifest
 mkdir -p /usr/var/lib/pacman
 cp -r /var/lib/pacman/local /usr/var/lib/pacman/
 
-# move kernel image and initrd to a defualt location if "linux" is not used
-if [ ${KERNEL_PACKAGE} != 'linux' ] ; then
-	mv /boot/vmlinuz-${KERNEL_PACKAGE} /boot/vmlinuz-linux
-	mv /boot/initramfs-${KERNEL_PACKAGE}.img /boot/initramfs-linux.img
-	mv /boot/initramfs-${KERNEL_PACKAGE}-fallback.img /boot/initramfs-linux-fallback.img
-fi
+# move kernel image and initrd to a default location.
+
+mv /boot/vmlinuz-linux /boot/vmlinuz-linux
+mv /boot/initramfs-linux.img /boot/initramfs-linux.img
+mv /boot/initramfs-linux-fallback.img /boot/initramfs-linux-fallback.img
+
 
 # clean up/remove unnecessary files
 rm -rf \
