@@ -29,7 +29,6 @@ export PACKAGES="\
 	lib32-libgpg-error \
 	networkmanager \
 	lib32-libnm \
-	iwd \
 	pipewire \
 	lib32-pipewire \
   	pipewire-alsa \
@@ -73,7 +72,7 @@ export PACKAGES="\
 	unzip \
 	which \
 	linux-firmware \
-	linux-lts-headers \
+	linux-headers \
 	retroarch \
 	libretro-beetle-psx \
 	libretro-beetle-psx-hw \
@@ -144,25 +143,7 @@ export PACKAGES="\
 	chaotic-aur/boxtron \
 	chaotic-aur/alvr \
 	iio-sensor-proxy \
-	gnome-shell \
-	eog \
-	evince \
-	file-roller \
-	gedit \
-	gnome-calculator \
-	gnome-calendar \
-	gnome-clocks \
-	gnome-control-center \
-	gnome-keyring \
-	gnome-menus \
-	gnome-music \
-	gnome-photos \
-	gnome-software \
-	gnome-system-monitor \
-	gnome-terminal \
-	nautilus \
-	sushi \
-	xdg-user-dirs-gtk \
+	gnome \
 	firefox \
 	discord \
 	git \
@@ -172,10 +153,10 @@ export PACKAGES="\
 export AUR_PACKAGES="\
 	frzr \
 	steamos-compositor-plus \
+	chimera \
 	python-inotify-simple \
 	retroarch-autoconfig-udev-git \
 	alienware-alpha-wmi \
-	bcache-tools \
 	libretro-virtualjaguar-git \
 	wyvern \
 	gamescope-plus \
@@ -200,6 +181,8 @@ export SERVICES="\
 	bluetooth-workaround \
 	fstrim.timer \
 	avahi-daemon \
+	chimera-proxy.service \
+	chimera-proxy.socket \
 	haveged \
 	systemd-timesyncd \
 	sshd \
@@ -207,6 +190,8 @@ export SERVICES="\
 "
 
 export USER_SERVICES="\
+	chimera.service \
+	steam-patch.service \
 	gamemoded.service \
 	sxhkd.service \
 "
