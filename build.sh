@@ -217,9 +217,9 @@ cp -r /var/lib/pacman/local /usr/var/lib/pacman/
 
 # move kernel image and initrd to a default location.
 
-mv /boot/vmlinuz-linux /boot/vmlinuz-linux
-mv /boot/initramfs-linux.img /boot/initramfs-linux.img
-mv /boot/initramfs-linux-fallback.img /boot/initramfs-linux-fallback.img
+#mv /boot/vmlinuz-linux /boot/vmlinuz-linux
+#mv /boot/initramfs-linux.img /boot/initramfs-linux.img
+#mv /boot/initramfs-linux-fallback.img /boot/initramfs-linux-fallback.img
 
 
 # clean up/remove unnecessary files
