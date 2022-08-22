@@ -221,6 +221,15 @@ cp -r /var/lib/pacman/local /usr/var/lib/pacman/
 #mv /boot/initramfs-linux.img /boot/initramfs-linux.img
 #mv /boot/initramfs-linux-fallback.img /boot/initramfs-linux-fallback.img
 
+#Install flatpaks
+flatpak install -y ${FLATPAKS}
+
+#Install special flatpaks
+flatpak install --user ${FLATPAKS_SPECIAL}
+
+#First time runs
+
+flatpak run space.crankshaft.Crankshaft
 
 # clean up/remove unnecessary files
 rm -rf \
