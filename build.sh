@@ -224,13 +224,6 @@ cp -r /var/lib/pacman/local /usr/var/lib/pacman/
 #Install flatpaks
 flatpak install -y ${FLATPAKS}
 
-#Install special flatpaks
-flatpak install --user ${FLATPAKS_SPECIAL}
-
-#First time runs
-
-flatpak run space.crankshaft.Crankshaft
-
 # clean up/remove unnecessary files
 rm -rf \
 /extra_pkgs \

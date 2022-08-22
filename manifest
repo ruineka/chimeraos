@@ -178,9 +178,6 @@ export FLATPAKS="\
 	flathub net.brinkervii.grapejuice \
 "
 
-export FLATPAKS_SPECIAL"\
-	space.crankshaft.Crankshaft \
-"
 export SERVICES="\
 	frzr-autoupdate.timer \
 	NetworkManager \
