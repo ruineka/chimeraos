@@ -111,6 +111,9 @@ Include = /etc/pacman.d/chaotic-mirrorlist
 # update package databases
 pacman --noconfirm -Syy
 
+# install kernel package
+pacman --noconfirm -S "${KERNEL_PACKAGE}" "${KERNEL_PACKAGE}-headers"
+
 # install packages
 pacman --noconfirm -S --overwrite '*' ${PACKAGES}
 rm -rf /var/cache/pacman/pkg
@@ -147,16 +150,9 @@ ${USERNAME} ALL=(ALL) NOPASSWD: /usr/lib/media-support/format-media.sh*
 # set the default editor, so visudo works
 echo "export EDITOR=/usr/bin/vim" >> /etc/bash.bashrc
 
-# set default session in lightdm
-echo "
-[LightDM]
-run-directory=/run/lightdm
-logind-check-graphical=true
-[Seat:*]
-session-wrapper=/etc/lightdm/Xsession
+echo "[Seat:*]
 autologin-user=${USERNAME}
-autologin-session=steamos
-" > /etc/lightdm/lightdm.conf
+" > /etc/lightdm/lightdm.conf.d/00-autologin-user.conf
 
 echo "${SYSTEM_NAME}" > /etc/hostname
 
@@ -212,6 +208,13 @@ pacman -Q > /manifest
 # preserve installed package database
 mkdir -p /usr/var/lib/pacman
 cp -r /var/lib/pacman/local /usr/var/lib/pacman/
+
+# move kernel image and initrd to a defualt location if "linux" is not used
+if [ ${KERNEL_PACKAGE} != 'linux' ] ; then
+	mv /boot/vmlinuz-${KERNEL_PACKAGE} /boot/vmlinuz-linux
+	mv /boot/initramfs-${KERNEL_PACKAGE}.img /boot/initramfs-linux.img
+	mv /boot/initramfs-${KERNEL_PACKAGE}-fallback.img /boot/initramfs-linux-fallback.img
+fi
 
 # clean up/remove unnecessary files
 rm -rf \
