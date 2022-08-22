@@ -174,10 +174,6 @@ export AUR_PACKAGES="\
 	handygccs-git \
 "
 
-export FLATPAKS="\
-	flathub net.brinkervii.grapejuice \
-"
-
 export SERVICES="\
 	frzr-autoupdate.timer \
 	NetworkManager \
