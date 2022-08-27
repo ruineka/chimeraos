@@ -76,8 +76,6 @@ export PACKAGES="\
 	intel-media-driver \
 	dkms \
 	nvidia-dkms \
-	opencl-nvidia \
-	lib32-opencl-nvidia \
 	nvidia-utils \
 	lib32-nvidia-utils \
 	nvidia-prime \
@@ -91,33 +89,20 @@ export PACKAGES="\
 	which \
 	linux-firmware \
 	retroarch \
-	libretro-beetle-psx \
 	libretro-beetle-psx-hw \
-	libretro-blastem \
-	libretro-bsnes \
-	libretro-bsnes-hd \
-	libretro-citra \
 	libretro-dolphin \
-	libretro-desmume \
-	libretro-gambatte \
 	libretro-genesis-plus-gx \
 	libretro-mame \
-	libretro-melonds \
 	libretro-mgba \
 	libretro-mupen64plus-next \
 	libretro-nestopia \
-	libretro-parallel-n64 \
-	libretro-scummvm \
 	libretro-snes9x \
-	libretro-yabause \
 	libretro-flycast \
 	libretro-play \
 	libretro-kronos \
 	libretro-beetle-pce-fast \
 	libretro-picodrive \
 	libretro-ppsspp \
-	libretro-pcsx2 \
-	libretro-shaders-slang \
 	nss-mdns \
 	haveged \
 	openbox \
@@ -125,11 +110,9 @@ export PACKAGES="\
 	usbutils \
 	ethtool \
 	nano \
-	boost-libs \
 	gamemode \
 	lib32-gamemode \
 	podman \
-	podman-compose \
 	lshw \
 	rsync \
 	dosbox \
@@ -140,12 +123,9 @@ export PACKAGES="\
 	cifs-utils \
 	nfs-utils \
 	smbclient \
-	mame-tools \
 	usb_modeswitch \
 	sxhkd \
 	fmt \
-	udisks2 \
-	udiskie \
 	openal \
 	lib32-openal \
 	wavpack \
@@ -162,7 +142,6 @@ export PACKAGES="\
 	chaotic-aur/boxtron \
 	chaotic-aur/rtl88x2bu-dkms-git \
 	chaotic-aur/rtw89-dkms-git \
-	chaotic-aur/alvr \
 "
 
 export AUR_PACKAGES="\
@@ -219,7 +198,6 @@ export FILES_TO_DELETE="\
 	/usr/share/man \
 	/usr/share/doc \
 	/usr/share/help \
-	/usr/share/jack-audio-connection-kit \
 	/usr/share/SFML \
 	/usr/share/libretro/autoconfig/udev/Xbox_360_Wireless_Receiver_Chinese01.cfg \
 	/usr/share/libretro/autoconfig/udev/Gasia_PS_Gamepad_USB.cfg \
@@ -241,12 +219,11 @@ postinstallhook() {
 	curl -L -O https://archive.archlinux.org/repos/2022/01/09/community/os/x86_64/libretro-flycast-4475-1-x86_64.pkg.tar.zst
 
 	pacman --noconfirm -U *.pkg.tar.zst
-
-	# Use jupiter-steam for bootstrapping purposes
-	curl -L -O https://steamdeck-packages.steamos.cloud/archlinux-mirror/jupiter-main/os/x86_64/steam-jupiter-stable-1.0.0.74-2.19-x86_64.pkg.tar.zst
-
-	# auto-solve steam conflict
-	yes | pacman -U steam-jupiter-stable-1.0.0.74-2.19-x86_64.pkg.tar.zst
-
 	rm *.pkg.tar.zst
+
+	# Remove build tools for slimmer image
+	rm /usr/share/libalpm/hooks/70-dkms-install.hook
+	rm /usr/share/libalpm/hooks/70-dkms-upgrade.hook
+	rm /usr/share/libalpm/hooks/71-dkms-remove.hook
+	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers
 }
