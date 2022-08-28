@@ -3,14 +3,15 @@
 export VERSION="35"
 export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
+export SYSTEM_CODENAME="Merabi"
+export SYSTEM_VARIANT="Ruineka"
 export USERNAME="gamer"
 export SIZE="10000MB"
 export ARCHIVE_DATE=""
 export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
 export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
-
-export KERNEL_PACKAGE="linux-lts"
+export KERNEL_PACKAGE="linux"
 
 export PACKAGES="\
 	gnome-control-center \
@@ -72,7 +73,6 @@ export PACKAGES="\
 	lib32-vulkan-intel \
 	libva-intel-driver \
 	lib32-libva-intel-driver \
-	xf86-video-intel \
 	intel-media-driver \
 	dkms \
 	nvidia-dkms \
