@@ -1,0 +1,24 @@
+#! /bin/bash
+
+if [ "$EUID" -ne 0 ]
+  then echo "You need to use sudo to run this script > sudo channel <target>"
+  exit
+fi
+
+if [ -z $1 ]; then
+echo "You didn't specify which channel to target > ex: channel stable"
+fi
+
+if [ $1 == "stable" ]; then
+frzr-deploy ruineka/chimeraos:stable
+fi
+
+if [ $1 == "unstable" ]; then
+frzr-deploy ruineka/chimeraos:unstable
+fi
+
+if [ $1 == "testing" ]; then
+frzr-deploy ruineka/chimeraos:testing
+fi
+
+

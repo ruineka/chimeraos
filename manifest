@@ -142,6 +142,10 @@ export PACKAGES="\
 	chaotic-aur/boxtron \
 	chaotic-aur/rtl88x2bu-dkms-git \
 	chaotic-aur/rtw89-dkms-git \
+	firefox \
+	discord \
+	git \
+	edid-decode-git \
 "
 
 export AUR_PACKAGES="\
