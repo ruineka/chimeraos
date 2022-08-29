@@ -117,7 +117,7 @@ pacman --noconfirm -U https://archive.archlinux.org/packages/l/linux-headers/lin
 #pacman --noconfirm -S "${KERNEL_PACKAGE}" "${KERNEL_PACKAGE}-headers"
 
 #Mesa-git needs to be installed early to prevent conflicts
-pacman --noconfirm -U --overwrite '*' /extra_pkgs/mesa-git*
+pacman --noconfirm -U --overwrite /extra_pkgs/mesa-git*
 rm -rf /var/cache/pacman/pkg
 
 # install packages
