@@ -1,24 +1,45 @@
 #! /bin/bash
 
 if [ "$EUID" -ne 0 ]
-  then echo "You need to use sudo to run this script > sudo channel <target>"
+  then echo "You need to use sudo to run this script"
   exit
 fi
 
-if [ -z $1 ]; then
-echo "You didn't specify which channel to target > ex: channel stable"
+channel=$(cat /frzr_root/source)
+echo "Your current channel is $channel"
+
+echo "Would you like to switch channels? y/n"
+read answer
+
+if [ $answer == "y" ];then
+  echo "Which channel? (stable, unstable, testing)"
+  read answer2
+  
+  if [ $answer2 == "stable" ] || [ $answer2 == "unstable" ] || [ $answer2 == "testing" ]; then
+     echo "Switching channel to $answer2.."
+  else
+     echo "You entered an invalid response."
+     exit 1
+  fi
+  
+else
+   exit 1
+fi  
+
+
+if [ $answer2 == "stable" ]; then
+echo ruineka/chimeraos:stable > /frzr_root/source
+echo "Switched target to $channel"
 fi
 
-if [ $1 == "stable" ]; then
-frzr-deploy ruineka/chimeraos:stable
+if [ $answer2 == "unstable" ]; then
+echo ruineka/chimeraos:unstable >  /frzr_root/source
+echo "Switched target to $channel"
 fi
 
-if [ $1 == "unstable" ]; then
-frzr-deploy ruineka/chimeraos:unstable
-fi
-
-if [ $1 == "testing" ]; then
-frzr-deploy ruineka/chimeraos:testing
+if [ $answer2 == "testing" ]; then
+echo ruineka/chimeraos:testing > /frzr_root/source
+echo "Switched target to $channel"
 fi
 
 
