@@ -73,6 +73,9 @@ cp -R manifest rootfs/. ${BUILD_PATH}/
 pacman-key --init
 pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
 pacman-key --lsign-key FBA220DFC880C036
+# add miffe repo and keys
+pacman-key --recv-keys 313F5ABD
+pacman-key --lsign-key 313F5ABD
 pacman --noconfirm -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-'{keyring,mirrorlist}'.pkg.tar.zst'
 rm -rf ${BUILD_PATH}/etc/pacman.d
 cp -R /etc/pacman.d ${BUILD_PATH}/etc/
@@ -106,14 +109,17 @@ Include = /etc/pacman.d/mirrorlist
 
 [chaotic-aur]
 Include = /etc/pacman.d/chaotic-mirrorlist
+
+[miffe]
+Server = http://arch.miffe.org/x86_64/
 ' >> /etc/pacman.conf
 
 # update package databases
 pacman --noconfirm -Syy
 
 # install kernel package
-pacman --noconfirm -U https://archive.archlinux.org/packages/l/linux/linux-5.18.16.arch1-1-x86_64.pkg.tar.zst
-pacman --noconfirm -U https://archive.archlinux.org/packages/l/linux-headers/linux-headers-5.18.16.arch1-1-x86_64.pkg.tar.zst
+pacman --noconfirm -U https://arch.miffe.org/x86_64/linux-mainline-6.0rc2-1-x86_64.pkg.tar.zst
+pacman --noconfirm -U https://arch.miffe.org/x86_64/linux-mainline-headers-6.0rc2-1-x86_64.pkg.tar.zst
 #pacman --noconfirm -S "${KERNEL_PACKAGE}" "${KERNEL_PACKAGE}-headers"
 
 #Mesa-git needs to be installed early to prevent conflicts
