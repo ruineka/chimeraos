@@ -102,6 +102,9 @@ fi
 # Enable ParallelDownloads
 sed -i '/ParallelDownloads/s/^#//g' /etc/pacman.conf
 
+# Disable signature checking
+sed -i 's/Required DatabaseOptional/Never/g' /etc/pacman.conf
+
 # add multilib and chaotic-aur repos
 echo '
 [multilib]
