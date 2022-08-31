@@ -52,7 +52,7 @@ btrfs subvolume create ${BUILD_PATH}
 pacstrap ${BUILD_PATH} base
 
 # build AUR packages to be installed later
-PIKAUR_CMD="PKGDEST=/tmp/temp_repo pikaur --noconfirm -Sw ${AUR_PACKAGES}"
+PIKAUR_CMD="PKGDEST=/tmp/temp_repo pikaur --noconfirm -Sw ${EARLY_AUR_PACKAGES} ${AUR_PACKAGES}"
 PIKAUR_RUN=(bash -c "${PIKAUR_CMD}")
 if [ -n "${BUILD_USER}" ]; then
 	PIKAUR_RUN=(su "${BUILD_USER}" -c "${PIKAUR_CMD}")
@@ -123,6 +123,10 @@ pacman --noconfirm -Syy
 # install kernel package
 pacman --noconfirm -U https://github.com/ruineka/linux/releases/download/v6.0-rc3/linux-mainline-6.0rc3-1-x86_64.pkg.tar.zst
 pacman --noconfirm -U https://github.com/ruineka/linux/releases/download/v6.0-rc3/linux-mainline-headers-6.0rc3-1-x86_64.pkg.tar.zst
+
+#downgrade SDL2
+pacman --noconfirm -U https://archive.archlinux.org/packages/s/sdl2/sdl2-2.0.9-1-x86_64.pkg.tar.xz
+
 #pacman --noconfirm -S "${KERNEL_PACKAGE}" "${KERNEL_PACKAGE}-headers"
 
 # Mesa-git needs to be installed early to prevent conflicts
