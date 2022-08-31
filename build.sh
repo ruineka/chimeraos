@@ -52,7 +52,7 @@ btrfs subvolume create ${BUILD_PATH}
 pacstrap ${BUILD_PATH} base
 
 # build AUR packages to be installed later
-PIKAUR_CMD="PKGDEST=/tmp/temp_repo pikaur --noconfirm -Sw ${EARLY_AUR_PACKAGES} ${AUR_PACKAGES}"
+PIKAUR_CMD="PKGDEST=/tmp/temp_repo pikaur --noconfirm -Sw ${AUR_PACKAGES}"
 PIKAUR_RUN=(bash -c "${PIKAUR_CMD}")
 if [ -n "${BUILD_USER}" ]; then
 	PIKAUR_RUN=(su "${BUILD_USER}" -c "${PIKAUR_CMD}")
@@ -130,10 +130,10 @@ pacman --noconfirm -U https://archive.archlinux.org/packages/s/sdl2/sdl2-2.0.9-1
 #pacman --noconfirm -S "${KERNEL_PACKAGE}" "${KERNEL_PACKAGE}-headers"
 
 # Mesa-git needs to be installed early to prevent conflicts
-pacman --noconfirm -U /extra_pkgs/mesa-git* /extra_pkgs/lib32-mesa-git*
-rm -rf /var/cache/pacman/pkg
-rm -rf /extra_pkgs/lib32-mesa-git*
-rm -rf /extra_pkgs/mesa-git*
+#pacman --noconfirm -U /extra_pkgs/mesa-git* /extra_pkgs/lib32-mesa-git*
+#rm -rf /var/cache/pacman/pkg
+#rm -rf /extra_pkgs/lib32-mesa-git*
+#rm -rf /extra_pkgs/mesa-git*
 
 # install packages
 pacman --noconfirm -S --overwrite '*' ${PACKAGES}
