@@ -118,7 +118,9 @@ Server = http://arch.miffe.org/x86_64/
 pacman --noconfirm -Syy
 
 # install kernel package
-pacman --noconfirm -S "${KERNEL_PACKAGE}" "${KERNEL_PACKAGE}-headers"
+pacman --noconfirm -U https://github.com/ruineka/linux/releases/download/v6.0-rc3/linux-mainline-6.0rc3-1-x86_64.pkg.tar.zst
+pacman --noconfirm -U https://github.com/ruineka/linux/releases/download/v6.0-rc3/linux-mainline-headers-6.0rc3-1-x86_64.pkg.tar.zst
+#pacman --noconfirm -S "${KERNEL_PACKAGE}" "${KERNEL_PACKAGE}-headers"
 
 #Mesa-git needs to be installed early to prevent conflicts
 pacman --noconfirm -U /extra_pkgs/mesa-git* /extra_pkgs/lib32-mesa-git*
