@@ -124,9 +124,6 @@ pacman --noconfirm -Syy
 pacman --noconfirm -U https://github.com/ruineka/linux/releases/download/v6.0-rc3/linux-mainline-6.0rc3-1-x86_64.pkg.tar.zst
 pacman --noconfirm -U https://github.com/ruineka/linux/releases/download/v6.0-rc3/linux-mainline-headers-6.0rc3-1-x86_64.pkg.tar.zst
 
-#downgrade SDL2
-pacman --noconfirm -U https://archive.archlinux.org/packages/s/sdl2/sdl2-2.0.9-1-x86_64.pkg.tar.xz
-
 #pacman --noconfirm -S "${KERNEL_PACKAGE}" "${KERNEL_PACKAGE}-headers"
 
 # Mesa-git needs to be installed early to prevent conflicts
