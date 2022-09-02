@@ -126,7 +126,6 @@ export PACKAGES="\
 	liquidctl \
 	dmidecode \
 	iio-sensor-proxy \
-	chaotic-aur/mangoapp \
 	chaotic-aur/python-vdf \
 	chaotic-aur/libretro-stella2014-git \
 	chaotic-aur/libretro-opera-git \

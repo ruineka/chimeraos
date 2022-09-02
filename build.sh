@@ -140,6 +140,13 @@ pacman --noconfirm -U https://github.com/ruineka/mesa-22.3.0/releases/download/m
 
 pacman --noconfirm -S "${KERNEL_PACKAGE}" "${KERNEL_PACKAGE}-headers"
 
+# install mangoapp/mangohud from ruineka github
+pacman --noconfirm -U https://github.com/ruineka/MangoHud/releases/download/mango/mangoapp-0.6.8-1-x86_64.pkg.tar.zst
+
+pacman --noconfirm -U https://github.com/ruineka/MangoHud/releases/download/mango/mangohud-0.6.8-1-x86_64.pkg.tar.zst
+
+pacman --noconfirm -U https://github.com/ruineka/MangoHud/releases/download/mango/mangohud-common-0.6.8-1-x86_64.pkg.tar.zst
+
 # install packages
 pacman --noconfirm -S --overwrite '*' ${PACKAGES}
 rm -rf /var/cache/pacman/pkg
