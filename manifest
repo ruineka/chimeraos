@@ -150,7 +150,6 @@ export AUR_PACKAGES="\
 	wyvern \
 	gamescope-plus-git \
 	gamescope-session-git \
-	r8152-dkms \
 	rtl8812au-dkms-git \
 	rtl8814au-dkms-git \
 	xone-dkms \
@@ -161,6 +160,8 @@ export AUR_PACKAGES="\
 	steam-removable-media-git \
 	rz608-fix-git \
 	handygccs-git \
+	mangoapp \
+	
 "
 
 export EARLY_AUR_PACKAGES="\
