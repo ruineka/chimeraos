@@ -231,4 +231,7 @@ postinstallhook() {
 	rm /usr/share/libalpm/hooks/70-dkms-upgrade.hook
 	rm /usr/share/libalpm/hooks/71-dkms-remove.hook
 	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers
+	
+	# force -steamdeck option in desktop mode to prevent constant steam updates and enable steam OSK from the desktop.
+	sed -i 's,Exec=/usr/bin/steam-runtime,Exec=/usr/bin/steam-runtime -steampal -steamos3 -steamdeck,' /usr/share/applications/steam.desktop
 }
