@@ -140,6 +140,8 @@ export PACKAGES="\
 	zenity \
 	jre-openjdk \
 	fuse \
+	packagekit-qt5 \
+	jq \
 "
 
 export AUR_PACKAGES="\
