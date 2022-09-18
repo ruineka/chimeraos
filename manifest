@@ -137,6 +137,9 @@ export PACKAGES="\
 	discord \
 	git \
 	edid-decode-git \
+	zenity \
+	jre-openjdk \
+	fuse \
 "
 
 export AUR_PACKAGES="\
@@ -161,7 +164,6 @@ export AUR_PACKAGES="\
 	rz608-fix-git \
 	handygccs-git \
 	mangoapp \
-	
 "
 
 export EARLY_AUR_PACKAGES="\
