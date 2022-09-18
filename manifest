@@ -141,7 +141,10 @@ export PACKAGES="\
 	jre-openjdk \
 	fuse \
 	packagekit-qt5 \
+	qt5-wayland \
+	obs-studio \
 	jq \
+	asusctl \
 "
 
 export AUR_PACKAGES="\
