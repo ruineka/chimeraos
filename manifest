@@ -145,6 +145,10 @@ export PACKAGES="\
 	obs-studio \
 	jq \
 	asusctl \
+	libreoffice \
+	protontricks \
+	steamtinkerlaunch \
+	vlc \
 "
 
 export AUR_PACKAGES="\
@@ -203,10 +207,6 @@ export FILES_TO_DELETE="\
 	/boot/initramfs-linux-fallback.img \
 	/boot/syslinux \
 	/usr/share/gtk-doc \
-	/usr/share/man \
-	/usr/share/doc \
-	/usr/share/help \
-	/usr/share/SFML \
 	/usr/share/libretro/autoconfig/udev/Xbox_360_Wireless_Receiver_Chinese01.cfg \
 	/usr/share/libretro/autoconfig/udev/Gasia_PS_Gamepad_USB.cfg \
 	/usr/share/libretro/autoconfig/udev/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg \
