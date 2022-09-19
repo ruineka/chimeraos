@@ -134,9 +134,10 @@ pacman --noconfirm -Syy
 #pacman --noconfirm -U https://github.com/ruineka/linux/releases/download/v6.0-rc5-asus-fix/linux-mainline-6.0rc5-1-x86_64.pkg.tar.zst
 #pacman --noconfirm -U https://github.com/ruineka/linux/releases/download/v6.0-rc5-asus-fix/linux-mainline-headers-6.0rc5-1-x86_64.pkg.tar.zst
 
-# DMI kernel for Onexplayer
-pacman --noconfirm -U https://github.com/ruineka/linux/releases/download/v6.0-rc5-handheld-dmi/linux-mainline-6.0rc5-1-x86_64.pkg.tar.zst
-pacman --noconfirm -U https://github.com/ruineka/linux/releases/download/v6.0-rc5-handheld-dmi/linux-mainline-headers-6.0rc5-1-x86_64.pkg.tar.zst
+# Using Ruineka Kernel.
+pacman --noconfirm -U https://github.com/ruineka/linux/releases/download/ruineka-linux-6.0-RC6/linux-ruineka-6.0rc6-1-x86_64.pkg.tar.zst
+pacman --noconfirm -U https://github.com/ruineka/linux/releases/download/ruineka-linux-6.0-RC6/linux-ruineka-headers-6.0rc6-1-x86_64.pkg.tar.zst
+pacman --noconfirm -U https://github.com/ruineka/linux/releases/download/ruineka-linux-6.0-RC6/linux-ruineka-docs-6.0rc6-1-x86_64.pkg.tar.zst
 
 # install custom patched mesa for Intel
 pacman --noconfirm -U https://github.com/ruineka/mesa-22.3.0/releases/download/mesa-intel-gamescope/mesa-git-22.3.0_devel.158154.33e81ff0fba.d41d8cd98f00b204e9800998ecf8427e-1-x86_64.pkg.tar.zst
