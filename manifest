@@ -1,6 +1,6 @@
 #! /bin/bash
 
-export VERSION="35"
+export VERSION="36"
 export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export SYSTEM_CODENAME="Merabi"
@@ -109,8 +109,6 @@ export PACKAGES="\
 	rsync \
 	dosbox \
 	broadcom-wl-dkms \
-	ipw2100-fw \
-	ipw2200-fw \
 	intel-undervolt \
 	cifs-utils \
 	nfs-utils \
