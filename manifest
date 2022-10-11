@@ -158,7 +158,7 @@ export AUR_PACKAGES="\
 	alienware-alpha-wmi \
 	libretro-virtualjaguar-git \
 	wyvern \
-	gamescope-plus-git \
+	gamescope-git \
 	gamescope-session-git \
 	rtl8812au-dkms-git \
 	rtl8814au-dkms-git \
