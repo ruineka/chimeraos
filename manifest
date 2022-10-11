@@ -1,8 +1,8 @@
 #! /bin/bash
 
-export VERSION="36"
-export SYSTEM_DESC="ChimeraOS"
-export SYSTEM_NAME="chimeraos"
+export VERSION="1.0"
+export SYSTEM_DESC="XarianOS"
+export SYSTEM_NAME="xarianos"
 export SYSTEM_CODENAME="Merabi"
 export SYSTEM_VARIANT="Ruineka"
 export USERNAME="gamer"
@@ -10,7 +10,7 @@ export SIZE="15000MB"
 export ARCHIVE_DATE=""
 export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
-export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
+export BUG_REPORT_URL="https://github.com/Ruineka/chimeraos/issues"
 export KERNEL_PACKAGE="linux-ruineka"
 
 export PACKAGES="\
