@@ -138,9 +138,9 @@ pacman --noconfirm -U https://github.com/ruineka/linux/releases/download/v5.19.1
 pacman --noconfirm -U https://github.com/ruineka/linux/releases/download/v5.19.13-Ruineka/linux-ruineka-docs-5.19.13-1-x86_64.pkg.tar.zst
 
 # install custom patched mesa for Intel
-pacman --noconfirm -U https://github.com/ruineka/mesa-22.3.0/releases/download/mesa-intel-updated-gamescope/mesa-git-22.3.0_devel.158155.9aea4efcb94.d41d8cd98f00b204e9800998ecf8427e-1-x86_64.pkg.tar.zst
+pacman --noconfirm -U https://github.com/ruineka/mesa-22.3.0/releases/download/mesa-intel-gamescope/mesa-git-22.3.0_devel.158154.33e81ff0fba.d41d8cd98f00b204e9800998ecf8427e-1-x86_64.pkg.tar.zst
 
-pacman --noconfirm -U https://github.com/ruineka/mesa-22.3.0/releases/download/mesa-intel-updated-gamescope/lib32-mesa-git-22.3.0_devel.158155.9aea4efcb94.d41d8cd98f00b204e9800998ecf8427e-1-x86_64.pkg.tar.zst
+pacman --noconfirm -U https://github.com/ruineka/mesa-22.3.0/releases/download/mesa-intel-gamescope/lib32-mesa-git-22.3.0_devel.158154.33e81ff0fba.d41d8cd98f00b204e9800998ecf8427e-1-x86_64.pkg.tar.zst
 
 #pacman --noconfirm -S "${KERNEL_PACKAGE}" "${KERNEL_PACKAGE}-headers"
 
