@@ -139,6 +139,7 @@ export PACKAGES="\
 	fuse \
 	packagekit-qt5 \
 	qt5-wayland \
+	qt6-wayland \
 	obs-studio \
 	jq \
 	asusctl \
