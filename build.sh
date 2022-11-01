@@ -62,6 +62,7 @@ fi
 popd
 
 # build AUR packages to be installed later
+export GIT_ALLOW_PROTOCOL=file:https:git
 PIKAUR_CMD="PKGDEST=/tmp/temp_repo pikaur --noconfirm -Sw ${AUR_PACKAGES}"
 PIKAUR_RUN=(bash -c "${PIKAUR_CMD}")
 if [ -n "${BUILD_USER}" ]; then
@@ -131,16 +132,16 @@ Server = http://arch.miffe.org/x86_64/
 pacman --noconfirm -Syy
 
 # Using Ruineka Kernel.
-pacman --noconfirm -U https://github.com/ruineka/linux/releases/download/v5.19.13-Ruineka/linux-ruineka-5.19.13-1-x86_64.pkg.tar.zst
+pacman --noconfirm -U https://github.com/ruineka/linux/releases/download/v6.1-RC3-Ruineka/linux-ruineka-6.1rc3-1-x86_64.pkg.tar.zst
 
-pacman --noconfirm -U https://github.com/ruineka/linux/releases/download/v5.19.13-Ruineka/linux-ruineka-headers-5.19.13-1-x86_64.pkg.tar.zst
+pacman --noconfirm -U https://github.com/ruineka/linux/releases/download/v6.1-RC3-Ruineka/linux-ruineka-headers-6.1rc3-1-x86_64.pkg.tar.zst
 
-pacman --noconfirm -U https://github.com/ruineka/linux/releases/download/v5.19.13-Ruineka/linux-ruineka-docs-5.19.13-1-x86_64.pkg.tar.zst
+pacman --noconfirm -U https://github.com/ruineka/linux/releases/download/v6.1-RC3-Ruineka/linux-ruineka-docs-6.1rc3-1-x86_64.pkg.tar.zst
 
 # install custom patched mesa for Intel
-pacman --noconfirm -U https://github.com/ruineka/mesa-22.3.0/releases/download/mesa-intel-gamescope/mesa-git-22.3.0_devel.158154.33e81ff0fba.d41d8cd98f00b204e9800998ecf8427e-1-x86_64.pkg.tar.zst
+pacman --noconfirm -U https://github.com/ruineka/mesa/releases/download/22.2.2/mesa-git-22.2.2-1-x86_64.pkg.tar.zst
 
-pacman --noconfirm -U https://github.com/ruineka/mesa-22.3.0/releases/download/mesa-intel-gamescope/lib32-mesa-git-22.3.0_devel.158154.33e81ff0fba.d41d8cd98f00b204e9800998ecf8427e-1-x86_64.pkg.tar.zst
+pacman --noconfirm -U https://github.com/ruineka/mesa/releases/download/22.2.2/lib32-mesa-git-22.2.2-1-x86_64.pkg.tar.zst
 
 #pacman --noconfirm -S "${KERNEL_PACKAGE}" "${KERNEL_PACKAGE}-headers"
 
