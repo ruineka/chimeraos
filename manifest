@@ -169,6 +169,8 @@ export FILES_TO_DELETE="\
 	/boot/syslinux \
 "
 
+
 postinstallhook() {
+	# force -steamdeck option in desktop mode to prevent constant steam updates and enable steam OSK from the desktop.
 
 }
