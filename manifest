@@ -118,7 +118,6 @@ export PACKAGES="\
 	qt6-wayland \
 	obs-studio \
 	jq \
-	asusctl \
 	libreoffice \
 	protontricks \
 	steamtinkerlaunch \
@@ -139,6 +138,7 @@ export AUR_PACKAGES="\
 	rz608-fix-git \
 	handygccs-git \
 	mangoapp \
+	asusctl \
 "
 
 export EARLY_AUR_PACKAGES="\
