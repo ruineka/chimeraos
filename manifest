@@ -119,6 +119,8 @@ export PACKAGES="\
 	obs-studio \
 	jq \
 	libreoffice \
+	protontricks \
+	steamtinkerlaunch \
 	vlc \
 	gnome-browser-connector \
 "
@@ -137,6 +139,7 @@ export AUR_PACKAGES="\
 	handygccs-git \
 	mangoapp \
 	asusctl \
+	python-vdf \
 "
 
 export EARLY_AUR_PACKAGES="\
