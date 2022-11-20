@@ -1,6 +1,6 @@
 #! /bin/bash
 
-export VERSION="36"
+export VERSION="37"
 export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export SYSTEM_CODENAME="Merabi"
@@ -76,25 +76,9 @@ export PACKAGES="\
 	openssh \
 	diffutils \
 	logrotate \
-	vim \
 	unzip \
 	which \
 	linux-firmware \
-	retroarch \
-	libretro-beetle-psx-hw \
-	libretro-dolphin \
-	libretro-genesis-plus-gx \
-	libretro-mame \
-	libretro-mgba \
-	libretro-mupen64plus-next \
-	libretro-nestopia \
-	libretro-snes9x \
-	libretro-flycast \
-	libretro-play \
-	libretro-kronos \
-	libretro-beetle-pce-fast \
-	libretro-picodrive \
-	libretro-ppsspp \
 	nss-mdns \
 	haveged \
 	openbox \
@@ -123,14 +107,6 @@ export PACKAGES="\
 	libidn11 \
 	liquidctl \
 	dmidecode \
-	iio-sensor-proxy \
-	chaotic-aur/python-vdf \
-	chaotic-aur/libretro-stella2014-git \
-	chaotic-aur/libretro-opera-git \
-	chaotic-aur/legendary \
-	chaotic-aur/boxtron \
-	chaotic-aur/rtl88x2bu-dkms-git \
-	chaotic-aur/rtw89-dkms-git \
 	firefox \
 	git \
 	edid-decode-git \
@@ -152,21 +128,12 @@ export PACKAGES="\
 
 export AUR_PACKAGES="\
 	frzr \
-	steamos-compositor-plus \
-	chimera \
 	python-inotify-simple \
-	retroarch-autoconfig-udev-git \
-	alienware-alpha-wmi \
-	libretro-virtualjaguar-git \
-	wyvern \
 	gamescope-git \
 	gamescope-session-git \
-	rtl8812au-dkms-git \
-	rtl8814au-dkms-git \
 	xone-dkms \
 	xpad-noone-dkms \
 	xpadneo-dkms \
-	bcm20702a1-firmware \
 	nintendo-udev \
 	steam-removable-media-git \
 	rz608-fix-git \
@@ -187,8 +154,6 @@ export SERVICES="\
 	bluetooth-workaround \
 	fstrim.timer \
 	avahi-daemon \
-	chimera-proxy.service \
-	chimera-proxy.socket \
 	haveged \
 	systemd-timesyncd \
 	sshd \
@@ -196,43 +161,15 @@ export SERVICES="\
 "
 
 export USER_SERVICES="\
-	chimera.service \
-	steam-patch.service \
 	gamemoded.service \
-	sxhkd.service \
 "
 
 export FILES_TO_DELETE="\
 	/boot/initramfs-linux-fallback.img \
 	/boot/syslinux \
-	/usr/share/libretro/autoconfig/udev/Xbox_360_Wireless_Receiver_Chinese01.cfg \
-	/usr/share/libretro/autoconfig/udev/Gasia_PS_Gamepad_USB.cfg \
-	/usr/share/libretro/autoconfig/udev/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg \
 "
 
 postinstallhook() {
-	# disable retroarch menu in joypad configs
-	find /usr/share/libretro/autoconfig -type f -name '*.cfg' | xargs -d '\n' sed -i '/input_menu_toggle_btn/d'
-
-	# download and add racing wheel udev rules
-	pushd /usr/lib/udev/rules.d
-	curl -L -O https://raw.githubusercontent.com/berarma/oversteer/master/data/udev/99-fanatec-wheel-perms.rules
-	curl -L -O https://raw.githubusercontent.com/berarma/oversteer/master/data/udev/99-logitech-wheel-perms.rules
-	curl -L -O https://raw.githubusercontent.com/berarma/oversteer/master/data/udev/99-thrustmaster-wheel-perms.rules
-	popd
-
-	# avoid some broken libretro cores
-	curl -L -O https://archive.archlinux.org/repos/2022/01/09/community/os/x86_64/libretro-flycast-4475-1-x86_64.pkg.tar.zst
-
-	pacman --noconfirm -U *.pkg.tar.zst
-	rm *.pkg.tar.zst
-
-	# Remove build tools for slimmer image
-	rm /usr/share/libalpm/hooks/70-dkms-install.hook
-	rm /usr/share/libalpm/hooks/70-dkms-upgrade.hook
-	rm /usr/share/libalpm/hooks/71-dkms-remove.hook
-	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers
-	
 	# force -steamdeck option in desktop mode to prevent constant steam updates and enable steam OSK from the desktop.
-	sed -i 's,Exec=/usr/bin/steam-runtime,Exec=/usr/bin/steam-runtime -steampal -steamos3 -steamdeck,' /usr/share/applications/steam.desktop
+	sed -i 's,Exec=/usr/bin/steam-runtime,Exec=/usr/bin/steam-runtime -steamdeck,' /usr/share/applications/steam.desktop
 }
