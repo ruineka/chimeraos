@@ -119,8 +119,6 @@ export PACKAGES="\
 	obs-studio \
 	jq \
 	libreoffice \
-	protontricks \
-	steamtinkerlaunch \
 	vlc \
 	gnome-browser-connector \
 "
