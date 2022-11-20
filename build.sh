@@ -234,7 +234,7 @@ BUG_REPORT_URL="${BUG_REPORT_URL}"' > /etc/os-release
 trust anchor --store /extra_certs/*.crt
 
 # run post install hook
-postinstallhook
+#postinstallhook
 
 # record installed packages & versions
 pacman -Q > /manifest
