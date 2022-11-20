@@ -170,6 +170,5 @@ export FILES_TO_DELETE="\
 "
 
 postinstallhook() {
-	# force -steamdeck option in desktop mode to prevent constant steam updates and enable steam OSK from the desktop.
-	sed -i 's,Exec=/usr/bin/steam-runtime,Exec=/usr/bin/steam-runtime -steamdeck,' /usr/share/applications/steam.desktop
+
 }
