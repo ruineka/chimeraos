@@ -99,6 +99,7 @@ export PACKAGES="\
 	liquidctl \
 	dmidecode \
 	iio-sensor-proxy \
+	steam \
 "
 
 export AUR_PACKAGES="\
@@ -161,6 +162,4 @@ postinstallhook() {
 	curl -L -O https://raw.githubusercontent.com/berarma/oversteer/master/data/udev/99-thrustmaster-wheel-perms.rules
 	popd
 
-	# force -steamdeck option in desktop mode to prevent constant steam updates
-	sed -i 's,Exec=/usr/bin/steam-runtime,Exec=/usr/bin/steam-runtime -steampal,' /usr/share/applications/steam.desktop
 }
