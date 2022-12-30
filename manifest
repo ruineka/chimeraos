@@ -145,7 +145,6 @@ export SERVICES="\
 
 export USER_SERVICES="\
 	gamemoded.service \
-	sxhkd.service \
 "
 
 export FILES_TO_DELETE="\
