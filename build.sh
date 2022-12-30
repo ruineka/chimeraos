@@ -270,7 +270,7 @@ tar -c -I'xz -2 -T0' -f ${IMG_FILENAME} ${SYSTEM_NAME}-${VERSION}.img
 sha256sum ${SYSTEM_NAME}-${VERSION}.img.tar.xz > sha256sum.txt
 cat sha256sum.txt
 # Split resulting compress file into sections of 1.5GB. Frzr will need to combine before checking the end result checksum.
-split -d 1500M ${SYSTEM_NAME}-${VERSION}.img ${SYSTEM_NAME}-${VERSION}.img.tar.xz.
+split -d -b 1500M ${SYSTEM_NAME}-${VERSION}.img ${SYSTEM_NAME}-${VERSION}.img.tar.xz.
 rm ${SYSTEM_NAME}-${VERSION}.img
 
 
