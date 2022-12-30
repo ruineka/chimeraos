@@ -1,35 +1,27 @@
 #! /bin/bash
 
 export VERSION="38"
-export SYSTEM_DESC="ChimeraOS"
-export SYSTEM_NAME="chimeraos"
+export SYSTEM_DESC="ChimeraOS Holo"
+export SYSTEM_NAME="chimeraos-holo"
 export USERNAME="gamer"
-export SIZE="10000MB"
+export SIZE="15000MB"
 export ARCHIVE_DATE=""
-export WEBSITE="https://chimeraos.org"
-export DOCUMENTATION_URL="https://chimeraos.org/about"
-export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
+export WEBSITE="https://github.com/ruineka/chimeraos"
+export DOCUMENTATION_URL="https://github.com/ruineka/chimeraos"
+export BUG_REPORT_URL="https://github.com/ruineka/chimeraos/issues"
 
 export KERNEL_PACKAGE="linux"
 
 export PACKAGES="\
+	plasma \
+	plasma-wayland-session \
+	kde-applications \
 	gnome-control-center \
-	gnome-session \
-	gnome-shell \
-	gnome-software \
-	gnome-console \
-	gnome-text-editor \
-	gnome-keyring \
-	nautilus \
-	eog \
-	file-roller \
-	xdg-user-dirs-gtk \
-	xdg-desktop-portal-gnome \
 	fuse2 \
 	amd-ucode \
 	intel-ucode \
 	htop \
-	lightdm \
+	sddm \
 	accountsservice \
 	xorg-server \
 	bluez \
@@ -76,25 +68,9 @@ export PACKAGES="\
 	openssh \
 	diffutils \
 	logrotate \
-	vim \
 	unzip \
 	which \
 	linux-firmware \
-	retroarch \
-	libretro-beetle-psx-hw \
-	libretro-dolphin \
-	libretro-genesis-plus-gx \
-	libretro-mame \
-	libretro-mgba \
-	libretro-mupen64plus-next \
-	libretro-nestopia \
-	libretro-snes9x \
-	libretro-flycast \
-	libretro-play \
-	libretro-kronos \
-	libretro-beetle-pce-fast \
-	libretro-picodrive \
-	libretro-ppsspp \
 	nss-mdns \
 	haveged \
 	pulsemixer \
@@ -127,15 +103,11 @@ export PACKAGES="\
 
 export AUR_PACKAGES="\
 	frzr \
-	steamos-compositor-plus \
 	python-vdf \
-	chimera \
 	python-inotify-simple \
-	retroarch-autoconfig-udev-git \
 	alienware-alpha-wmi \
-	libretro-virtualjaguar-git \
 	wyvern \
-	gamescope-plus \
+	gamescope \
 	gamescope-session-git \
 	r8152-dkms \
 	r8168-dkms \
@@ -148,11 +120,8 @@ export AUR_PACKAGES="\
 	bcm20702a1-firmware \
 	nintendo-udev \
 	steam-removable-media-git \
-	rz608-fix-git \
 	handygccs-git \
 	hhfc-git \
-	libretro-stella2014-git \
-	libretro-opera-git \
 	legendary \
 	boxtron \
 	ryzenadj-git \
@@ -163,13 +132,11 @@ export AUR_PACKAGES="\
 export SERVICES="\
 	frzr-autoupdate.timer \
 	NetworkManager \
-	lightdm \
+	sddm \
 	bluetooth \
 	bluetooth-workaround \
 	fstrim.timer \
 	avahi-daemon \
-	chimera-proxy.service \
-	chimera-proxy.socket \
 	haveged \
 	systemd-timesyncd \
 	sshd \
@@ -177,8 +144,6 @@ export SERVICES="\
 "
 
 export USER_SERVICES="\
-	chimera.service \
-	steam-patch.service \
 	gamemoded.service \
 	sxhkd.service \
 "
@@ -186,19 +151,9 @@ export USER_SERVICES="\
 export FILES_TO_DELETE="\
 	/boot/initramfs-linux-fallback.img \
 	/boot/syslinux \
-	/usr/share/gtk-doc \
-	/usr/share/man \
-	/usr/share/doc \
-	/usr/share/help \
-	/usr/share/SFML \
-	/usr/share/libretro/autoconfig/udev/Xbox_360_Wireless_Receiver_Chinese01.cfg \
-	/usr/share/libretro/autoconfig/udev/Gasia_PS_Gamepad_USB.cfg \
-	/usr/share/libretro/autoconfig/udev/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg \
 "
 
 postinstallhook() {
-	# disable retroarch menu in joypad configs
-	find /usr/share/libretro/autoconfig -type f -name '*.cfg' | xargs -d '\n' sed -i '/input_menu_toggle_btn/d'
 
 	# download and add racing wheel udev rules
 	pushd /usr/lib/udev/rules.d
@@ -207,38 +162,6 @@ postinstallhook() {
 	curl -L -O https://raw.githubusercontent.com/berarma/oversteer/master/data/udev/99-thrustmaster-wheel-perms.rules
 	popd
 
-	# avoid some broken libretro cores
-	curl -L -O https://archive.archlinux.org/repos/2022/01/09/community/os/x86_64/libretro-flycast-4475-1-x86_64.pkg.tar.zst
-
-	pacman --noconfirm -U *.pkg.tar.zst
-	rm *.pkg.tar.zst
-
-	# Remove build tools for slimmer image
-	rm /usr/share/libalpm/hooks/70-dkms-install.hook
-	rm /usr/share/libalpm/hooks/70-dkms-upgrade.hook
-	rm /usr/share/libalpm/hooks/71-dkms-remove.hook
-	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers
-
-	# remove dolphin standalone emulator files (only need /usr/share/dolphin-emu/sys)
-	rm /usr/bin/dolphin-emu
-	rm /usr/bin/dolphin-emu-nogui
-	rm /usr/bin/dolphin-tool
-	rm /usr/share/applications/dolphin-emu.desktop
-
-	# clean up desktop shortcuts
-	sed -i -e 's/Name=Steam (Runtime)/Name=Steam/' /usr/share/applications/steam.desktop
-	find /usr/share/applications/* | \
-	grep -v org.gnome.Console.desktop | \
-	grep -v org.gnome.DiskUtility.desktop | \
-	grep -v org.gnome.FileRoller.desktop | \
-	grep -v org.gnome.Settings.desktop | \
-	grep -v org.gnome.Nautilus.desktop | \
-	grep -v org.gnome.Software.desktop | \
-	grep -v org.gnome.TextEditor.desktop | \
-	grep -v steam.desktop | \
-	grep -v org.chimeraos.Gamescope.desktop | \
-	xargs -I {} sh -c "echo NoDisplay=true >> {}"
-
 	# force -steamdeck option in desktop mode to prevent constant steam updates
-	sed -i 's,Exec=/usr/bin/steam-runtime,Exec=/usr/bin/steam-runtime -steamdeck,' /usr/share/applications/steam.desktop
+	sed -i 's,Exec=/usr/bin/steam-runtime,Exec=/usr/bin/steam-runtime -steampal,' /usr/share/applications/steam.desktop
 }
