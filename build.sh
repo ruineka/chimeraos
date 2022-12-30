@@ -264,16 +264,20 @@ rm -rf ${BUILD_IMG}
 
 IMG_FILENAME="${SYSTEM_NAME}-${VERSION}.img.tar.xz"
 
-tar -c -I'xz -9 -T0' -f ${IMG_FILENAME} ${SYSTEM_NAME}-${VERSION}.img
-rm ${SYSTEM_NAME}-${VERSION}.img
-
+# Compressing System Image
+tar -c -I'xz -2 -T0' -f ${IMG_FILENAME} ${SYSTEM_NAME}-${VERSION}.img
+# Sha256 of compressed image
 sha256sum ${SYSTEM_NAME}-${VERSION}.img.tar.xz > sha256sum.txt
 cat sha256sum.txt
+# Split resulting compress file into sections of 1.5GB. Frzr will need to combine before checking the end result checksum.
+split -d 1500M ${SYSTEM_NAME}-${VERSION}.img ${SYSTEM_NAME}-${VERSION}.img.tar.xz.
+rm ${SYSTEM_NAME}-${VERSION}.img
+
 
 # Move the image to the output directory, if one was specified.
 if [ -n "${OUTPUT_DIR}" ]; then
 	mkdir -p "${OUTPUT_DIR}"
-	mv ${IMG_FILENAME} ${OUTPUT_DIR}
+	mv ${IMG_FILENAME}* ${OUTPUT_DIR}
 	mv build_info.txt ${OUTPUT_DIR}
 	mv sha256sum.txt ${OUTPUT_DIR}
 fi
