@@ -217,26 +217,6 @@ postinstallhook() {
 	rm /usr/share/libalpm/hooks/71-dkms-remove.hook
 	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers
 
-	# remove dolphin standalone emulator files (only need /usr/share/dolphin-emu/sys)
-	rm /usr/bin/dolphin-emu
-	rm /usr/bin/dolphin-emu-nogui
-	rm /usr/bin/dolphin-tool
-	rm /usr/share/applications/dolphin-emu.desktop
-
-	# clean up desktop shortcuts
-	sed -i -e 's/Name=Steam (Runtime)/Name=Steam/' /usr/share/applications/steam.desktop
-	find /usr/share/applications/* | \
-	grep -v org.chimeraos.Gamescope.desktop | \
-	grep -v org.gnome.Console.desktop | \
-	grep -v org.gnome.DiskUtility.desktop | \
-	grep -v org.gnome.FileRoller.desktop | \
-	grep -v org.gnome.Nautilus.desktop | \
-	grep -v org.gnome.Settings.desktop | \
-	grep -v org.gnome.Software.desktop | \
-	grep -v org.gnome.TextEditor.desktop | \
-	grep -v steam.desktop | \
-	xargs -I {} sh -c "echo NoDisplay=true >> {}"
-
 	# force -steamdeck option in desktop mode to prevent constant steam updates
 	sed -i 's,Exec=/usr/bin/steam-runtime,Exec=/usr/bin/steam-runtime -steamdeck,' /usr/share/applications/steam.desktop
 }
