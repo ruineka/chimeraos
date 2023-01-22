@@ -1,7 +1,7 @@
 #! /bin/bash
 
 export VERSION="39"
-export SYSTEM_DESC="ChimeraOS"
+export SYSTEM_DESC="Custom ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export USERNAME="gamer"
 export SIZE="10000MB"
@@ -35,17 +35,10 @@ export PACKAGES="\
 	fmt \
 	fuse2 \
 	gamemode \
-	gnome-console \
-	gnome-control-center \
-	gnome-keyring \
-	gnome-session \
-	gnome-shell \
-	gnome-software \
-	gnome-text-editor \
+	gnome \
 	gst-plugin-pipewire \
 	haveged \
 	htop \
-	iio-sensor-proxy \
 	intel-media-driver \
 	intel-ucode \
 	intel-undervolt \
@@ -123,6 +116,8 @@ export PACKAGES="\
 	xdg-user-dirs-gtk \
 	xf86-video-amdgpu \
 	xorg-server \
+	git \
+	pip \
 "
 
 export AUR_PACKAGES="\
