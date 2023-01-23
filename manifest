@@ -118,6 +118,7 @@ export PACKAGES="\
 	xorg-server \
 	git \
 	python-pip \
+	vulkan-radeon\
 "
 
 export AUR_PACKAGES="\
