@@ -224,13 +224,11 @@ rm -rf \
 /extra_pkgs \
 /extra_certs \
 /home \
-/var \
 
 rm -rf ${FILES_TO_DELETE}
 
 # create necessary directories
 mkdir /home
-mkdir /var
 mkdir /frzr_root
 EOF
 
