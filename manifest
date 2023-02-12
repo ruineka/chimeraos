@@ -36,13 +36,7 @@ export PACKAGES="\
 	fmt \
 	fuse2 \
 	gamemode \
-	gnome-console \
-	gnome-control-center \
-	gnome-keyring \
-	gnome-session \
-	gnome-shell \
-	gnome-software \
-	gnome-text-editor \
+	gnome \
 	gst-plugin-pipewire \
 	haveged \
 	htop \
