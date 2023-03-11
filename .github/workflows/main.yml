@@ -2,7 +2,7 @@ name: System image build
 on:
   push:
     branches:
-    - 'master'
+    - 'egpu'
 jobs:
   build:
     name: System image build
