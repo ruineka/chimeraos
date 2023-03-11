@@ -138,8 +138,6 @@ export PACKAGES="\
 "
 
 export AUR_PACKAGES="\
-        mesa-git \
-        lib32-mesa-git \
 	alienware-alpha-wmi \
 	bcm20702a1-firmware \
 	boxtron \
