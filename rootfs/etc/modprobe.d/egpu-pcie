@@ -1,0 +1,1 @@
+options amdgpu pcie_gen_cap=0x40000
