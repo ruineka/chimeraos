@@ -7,10 +7,10 @@ env:
 on:
   push:
     branches:
-      - master
+      - desktop
   pull_request:
     branches:
-      - 'master'
+      - 'desktop'
 
 jobs:
   changes:
