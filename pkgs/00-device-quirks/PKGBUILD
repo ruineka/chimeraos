@@ -7,7 +7,9 @@ pkgdesc="A collection of device specific configuration files"
 arch=('any')
 url="https://github.com/ChimeraOS/device-quirks"
 license=('MIT')
-depends=('systemd'
+depends=('cpio'
+         'acpica'
+         'systemd'
          'swh-plugins'
          'ryzenadj-controller-git')
 makedepends=('python-build'
