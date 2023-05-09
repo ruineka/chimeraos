@@ -7,10 +7,10 @@ env:
 on:
   push:
     branches:
-      - device-quirks
+      - master
   pull_request:
     branches:
-      - 'device-quirks'
+      - 'master'
 
 jobs:
   changes:
