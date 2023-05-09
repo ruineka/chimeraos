@@ -56,8 +56,8 @@ package() {
 	install -v -m644 -D -t "${pkgdir}/usr/lib/sysctl.d/" usr/lib/sysctl.d/*
 
 	#Install scripts
-	mkdir -p "${pkgdir}/etc/device-quirks"
-	cp -rv usr/share/device-quirks/* "${pkgdir}/etc/device-quirks/."
+	mkdir -p "${pkgdir}/usr/share/device-quirks"
+	cp -rv usr/share/device-quirks/* "${pkgdir}/usr/share/device-quirks/."
 
 	# Install license
 	install -v -m644 -D -t "${pkgdir}/usr/share/licenses/${_pkgbase}/" LICENSE
