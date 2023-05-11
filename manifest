@@ -1,6 +1,6 @@
 #! /bin/bash
 
-export VERSION="42"
+export VERSION="43"
 export SYSTEM_DESC="ChimeraOS"
 export SYSTEM_NAME="chimeraos"
 export USERNAME="gamer"
@@ -10,7 +10,7 @@ export WEBSITE="https://chimeraos.org"
 export DOCUMENTATION_URL="https://chimeraos.org/about"
 export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
 
-export KERNEL_PACKAGE="linux-lts"
+export KERNEL_PACKAGE="linux"
 
 export PACKAGES="\
 	accountsservice \
@@ -189,7 +189,6 @@ export AUR_PACKAGES="\
 	rz608-fix-git \
 	steam-removable-media-git \
 	wyvern \
-	xone-dkms \
 	xpad-noone-dkms \
 	xpadneo-dkms \
 "
