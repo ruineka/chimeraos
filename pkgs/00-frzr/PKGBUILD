@@ -19,6 +19,7 @@ package() {
   install -m 755 "$srcdir/frzr/__frzr-deploy" "$pkgdir/usr/bin"
   install -m 755 "$srcdir/frzr/frzr-release" "$pkgdir/usr/bin"
   install -m 755 "$srcdir/frzr/frzr-initramfs" "$pkgdir/usr/bin"
+  install -m 755 "$srcdir/frzr/frzr-tweaks" "$pkgdir/usr/bin"
   install -m 755 "$srcdir/frzr/frzr-unlock" "$pkgdir/usr/bin"
   install -m 644 "$srcdir/frzr/frzr-autoupdate.service" "$pkgdir/etc/systemd/system"
   install -m 644 "$srcdir/frzr/frzr-autoupdate.timer" "$pkgdir/etc/systemd/system"
