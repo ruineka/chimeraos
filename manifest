@@ -157,6 +157,7 @@ export AUR_PACKAGES="\
 	bcm20702a1-firmware \
 	boxtron \
 	chimera \
+	chimeraos-device-quirks-git \
 	downgrade \
 	gamescope-plus \
 	gamescope-session-git \
