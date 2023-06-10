@@ -69,7 +69,6 @@ export PACKAGES="\
 	lib32-libva-vdpau-driver \
 	lib32-mesa \
 	lib32-mesa-vdpau \
-	lib32-nvidia-utils \
 	lib32-openal \
 	lib32-pipewire \
 	lib32-systemd \
@@ -113,9 +112,6 @@ export PACKAGES="\
 	networkmanager \
 	nfs-utils \
 	nss-mdns \
-	nvidia-dkms \
-	nvidia-prime \
-	nvidia-utils \
 	openal \
 	openssh \
 	pipewire \
