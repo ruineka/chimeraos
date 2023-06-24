@@ -100,7 +100,6 @@ export PACKAGES="\
 	libxcrypt-compat \
 	libxss \
 	lightdm \
-	linux-firmware-git \
 	liquidctl \
 	logrotate \
 	lshw \
@@ -168,6 +167,7 @@ export AUR_PACKAGES="\
 	handygccs-git \
 	hhfc-git \
 	legendary \
+	linux-firmware-git \
 	lib32-gamescope-plus \
 	libretro-dosbox-pure-git \
 	libretro-opera-git \
