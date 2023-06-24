@@ -16,7 +16,6 @@ export PACKAGES="\
 	accountsservice \
 	alsa-firmware \
 	alsa-utils \
-	amd-ucode \
 	bluez \
 	bluez-hid2hci \
 	bluez-plugins \
@@ -53,7 +52,6 @@ export PACKAGES="\
 	iio-sensor-proxy \
 	intel-gpu-tools \
 	intel-media-driver \
-	intel-ucode \
 	intel-undervolt \
 	lib32-curl \
 	lib32-fontconfig \
