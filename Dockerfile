@@ -18,6 +18,7 @@ RUN echo -e "keyserver-options auto-key-retrieve" >> /etc/pacman.d/gnupg/gpg.con
     python-installer \
     python-hatchling \
     python-markdown-it-py \
+    python-nose \
     python-setuptools \
     python-wheel \
     sudo \
