@@ -30,7 +30,7 @@ RUN echo -e "keyserver-options auto-key-retrieve" >> /etc/pacman.d/gnupg/gpg.con
     su - build -c "cd /tmp/pikaur && makepkg -f" && \
     su - build -c "git clone -b patch-1 https://github.com/ruineka/py-leveldb.git /tmp/py-leveldb" && \
     su - build -c "cd /tmp/py-leveldb && makepkg -f" && \
-    pacman --noconfirm -U /tmp/pikaur/pikaur-*.pkg.tar.zst \
+    pacman --noconfirm -U /tmp/pikaur/pikaur-*.pkg.tar.zst && \
     pacman --noconfirm -U /tmp/py-leveldb/python-leveldb*.pkg.tar.zst
 
 # Auto add PGP keys for users
